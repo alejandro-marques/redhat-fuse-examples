@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd        http://camel.apache.org/schema/spring http://camel.apache.org/schema/spring/camel-spring.xsd">
+    <bean class="org.apache.activemq.camel.component.ActiveMQComponent" id="activemq">
+        <property name="connectionFactory">
+            <bean class="org.apache.activemq.ActiveMQConnectionFactory">
+                <!-- Internal message queue -->
+                <!-- <property name="brokerURL" value="vm://localhost?broker.persistent=false&amp;broker.useJmx=false&amp;broker.enableStatistics=false"/> -->
+                <!-- External message queue -->
+                <property name="brokerURL" value="tcp://localhost:61616"/>
+                <property name="userName" value="admin"/>
+                <property name="password" value="admin"/>
+            </bean>
+        </property>
+    </bean>
+    <camelContext id="_camelContext1" xmlns="http://camel.apache.org/schema/spring">
+        <route id="_route1">
+            <from id="_from1" uri="file:orders/incoming"/>
+            <setHeader headerName="orderId" id="_setHeader1">
+                <xpath>/order/orderId/text()</xpath>
+            </setHeader>
+            <setHeader headerName="vendorName" id="_setHeader2">
+                <xpath>/order/orderItems/orderItem/orderItemPublisherName/text()</xpath>
+            </setHeader>
+            <log id="_log5" message="Received: ${body}"/>
+            <choice id="_choice1">
+                <when id="_when1">
+                    <simple>${header.vendorName} == 'ABC Company'</simple>
+                    <to id="_to1" uri="activemq:queue:abc"/>
+                </when>
+                <when id="_when2">
+                    <simple>${header.vendorName} == 'ORly'</simple>
+                    <to id="_to2" uri="activemq:queue:orly"/>
+                </when>
+                <when id="_when3">
+                    <simple>${header.vendorName} == 'Namming'</simple>
+                    <to id="_to3" uri="activemq:queue:namming"/>
+                </when>
+                <otherwise id="_otherwise1">
+                    <log id="_log1" message="Failed to deliver order: ${header.orderId} to vendor: ${header.vendorName}"/>
+                </otherwise>
+            </choice>
+        </route>
+        <route id="_route2">
+            <from id="_from2" uri="activemq:queue:abc"/>
+            <setHeader headerName="orderId" id="_setHeader3">
+                <xpath>/order/orderId/text()</xpath>
+            </setHeader>
+            <log id="_log2" message="Delivered order: ${header.orderId} to ABC Company"/>
+        </route>
+        <route id="_route3">
+            <from id="_from3" uri="activemq:queue:abc"/>
+            <setHeader headerName="orderId" id="_setHeader4">
+                <xpath>/order/orderId/text()</xpath>
+            </setHeader>
+            <log id="_log3" message="Delivered order: ${header.orderId} to ORly"/>
+        </route>
+        <route id="_route4">
+            <from id="_from4" uri="activemq:queue:abc"/>
+            <setHeader headerName="orderId" id="_setHeader5">
+                <xpath>/order/orderId/text()</xpath>
+            </setHeader>
+            <log id="_log4" message="Delivered order: ${header.orderId} to Namming"/>
+        </route>
+    </camelContext>
+</beans>
