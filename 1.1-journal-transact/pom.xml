@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd" xmlns="http://maven.apache.org/POM/4.0.0"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <modelVersion>4.0.0</modelVersion>
+
+  <parent>
+    <groupId>com.redhat.training</groupId>
+    <artifactId>camel-exercises</artifactId>
+    <version>1.0</version>
+  </parent>
+
+  <artifactId>journal-transact</artifactId>
+  <name>GE: Journaling Incoming Transactions</name>
+
+  <dependencies>
+    <dependency>
+      <groupId>org.apache.camel</groupId>
+      <artifactId>camel-core</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.camel</groupId>
+      <artifactId>camel-spring</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.camel</groupId>
+      <artifactId>camel-test-spring3</artifactId>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>log4j</groupId>
+      <artifactId>log4j</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.slf4j</groupId>
+      <artifactId>slf4j-api</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.slf4j</groupId>
+      <artifactId>slf4j-log4j12</artifactId>
+    </dependency>
+  </dependencies>
+  <repositories>
+    <repository>
+      <id>redhat-ga-repository</id>
+      <url>https://maven.repository.redhat.com/ga</url>
+    </repository>
+    <repository>
+      <id>redhat-early-access-repository</id>
+      <url>https://maven.repository.redhat.com/earlyaccess/all</url>
+    </repository>
+  </repositories>
+  <pluginRepositories>
+    <pluginRepository>
+      <id>redhat-ga-repository</id>
+      <url>https://maven.repository.redhat.com/ga</url>
+    </pluginRepository>
+    <pluginRepository>
+      <id>redhat-early-access-repository</id>
+      <url>https://maven.repository.redhat.com/earlyaccess/all</url>
+    </pluginRepository>
+  </pluginRepositories>
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.apache.camel</groupId>
+        <artifactId>camel-maven-plugin</artifactId>
+      </plugin>
+    </plugins>
+  </build>
+</project>

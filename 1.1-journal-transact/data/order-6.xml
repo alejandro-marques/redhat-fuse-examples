@@ -1,0 +1,11 @@
+<order>
+	<orderId>6</orderId>
+	<orderItems>
+		<orderItem>
+			<orderItemId>6</orderItemId>
+			<orderItemQty>1</orderItemQty>
+			<orderItemPublisherName>ABC Company</orderItemPublisherName>
+			<orderItemPrice>10.59</orderItemPrice>
+		</orderItem>
+	</orderItems>
+</order>
