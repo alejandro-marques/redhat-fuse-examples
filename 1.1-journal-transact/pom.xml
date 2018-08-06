@@ -44,26 +44,7 @@
       <artifactId>slf4j-log4j12</artifactId>
     </dependency>
   </dependencies>
-  <repositories>
-    <repository>
-      <id>redhat-ga-repository</id>
-      <url>https://maven.repository.redhat.com/ga</url>
-    </repository>
-    <repository>
-      <id>redhat-early-access-repository</id>
-      <url>https://maven.repository.redhat.com/earlyaccess/all</url>
-    </repository>
-  </repositories>
-  <pluginRepositories>
-    <pluginRepository>
-      <id>redhat-ga-repository</id>
-      <url>https://maven.repository.redhat.com/ga</url>
-    </pluginRepository>
-    <pluginRepository>
-      <id>redhat-early-access-repository</id>
-      <url>https://maven.repository.redhat.com/earlyaccess/all</url>
-    </pluginRepository>
-  </pluginRepositories>
+
   <build>
     <plugins>
       <plugin>

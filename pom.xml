@@ -11,6 +11,7 @@
     
   <modules>
       <module>1.1-journal-transact</module>
+      <module>1.2-route-ftp</module>
   </modules>
 
   <properties>
@@ -46,7 +47,7 @@
     <maven-install-plugin.version>2.5.2</maven-install-plugin.version>
     <fabric8.maven.plugin.version>3.1.80.redhat-000004</fabric8.maven.plugin.version>
   </properties>
-	
+  
   <repositories>
     <repository>
       <id>fuse-public-repository</id>
@@ -57,6 +58,10 @@
       <id>red-hat-ga-repository</id>
       <name>Red Hat GA Repository</name>
       <url>https://maven.repository.redhat.com/ga</url>
+    </repository>
+    <repository>
+      <id>redhat-early-access-repository</id>
+      <url>https://maven.repository.redhat.com/earlyaccess/all</url>
     </repository>
   </repositories>
   
@@ -70,6 +75,10 @@
       <id>red-hat-ga-repository</id>
       <name>Red Hat GA Repository</name>
       <url>https://maven.repository.redhat.com/ga</url>
+    </pluginRepository>
+    <pluginRepository>
+      <id>redhat-early-access-repository</id>
+      <url>https://maven.repository.redhat.com/earlyaccess/all</url>
     </pluginRepository>
   </pluginRepositories>
 

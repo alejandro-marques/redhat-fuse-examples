@@ -1,8 +1,8 @@
 #!/bin/bash
 
-HOST=infrastructure.lab.example.com
-USER=ftpuser1
-PASS=w0rk1n
+HOST=localhost
+USER=user
+PASS=password
 
 echo 'Deleting old journal files...'
 rm -f orders/* &>/dev/null
@@ -15,6 +15,6 @@ if [ "$REMOTE_FILES" != "" ]; then
 	lftp -c "open ${HOST} -u ${USER},${PASS} ; mrm *" &>/dev/null
 fi
 
-lftp -c "open ${HOST} -u ${USER},${PASS} ; mput orders/incoming/*"
+lftp -c "open ${HOST} -u ${USER},${PASS} ; mput data/*"
 
 echo 'Upload complete!'
