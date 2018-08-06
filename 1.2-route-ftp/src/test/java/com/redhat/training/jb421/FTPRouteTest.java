@@ -43,7 +43,7 @@ public class FTPRouteTest extends CamelSpringTestSupport {
 		String host = FTP_HOST;
 		String user = "user";
 		String pass = "password";
-		String filePath = "data/order-1.xml";
+		String filePath = "../data/orders/order-1.xml";
 		String uploadPath = "order-1.xml";
 
 		ftpUrl = String.format(ftpUrl, user, pass, host, uploadPath);

@@ -15,6 +15,6 @@ if [ "$REMOTE_FILES" != "" ]; then
 	lftp -c "open ${HOST} -u ${USER},${PASS} ; mrm *" &>/dev/null
 fi
 
-lftp -c "open ${HOST} -u ${USER},${PASS} ; mput data/*"
+lftp -c "open ${HOST} -u ${USER},${PASS} ; mput ../data/orders/*"
 
 echo 'Upload complete!'

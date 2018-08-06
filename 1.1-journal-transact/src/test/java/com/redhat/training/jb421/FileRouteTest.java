@@ -23,7 +23,7 @@ public class FileRouteTest extends CamelSpringTestSupport {
     }
 
 	//XXX if contents of materials/data/orders changes will break this test class	
-	private final static String DATA_FOLDER = "./data";
+	private final static String DATA_FOLDER = "../data/orders";
 	private final static String JOURNAL_FOLDER = "orders";
 	private final static String JOURNAL_FILE = "journal.txt";
 	private final static String SRC_FOLDER = "orders/incoming";
