@@ -5,11 +5,13 @@
         <property name="connectionFactory">
             <bean class="org.apache.activemq.ActiveMQConnectionFactory">
                 <!-- Internal message queue -->
-                <!-- <property name="brokerURL" value="vm://localhost?broker.persistent=false&amp;broker.useJmx=false&amp;broker.enableStatistics=false"/> -->
+                <property name="brokerURL" value="vm://localhost?broker.persistent=false&amp;broker.useJmx=false&amp;broker.enableStatistics=false"/>
                 <!-- External message queue -->
+                <!-- 
                 <property name="brokerURL" value="tcp://localhost:61616"/>
                 <property name="userName" value="admin"/>
                 <property name="password" value="admin"/>
+                 -->
             </bean>
         </property>
     </bean>
