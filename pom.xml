@@ -10,11 +10,11 @@
   <packaging>pom</packaging>
     
   <modules>
-      <module>1.1-journal-transact</module>
-      <module>1.2-route-ftp</module>
-      <module>1.3-filter-messages</module>
-      <module>1.4-intro-camel</module>
-      <module>1.5-routes-jbds</module>
+      <module>1.1-file-to-file</module>
+      <module>1.2-ftp-to-file-by-name</module>
+      <module>1.3-file-to-file-with-filter</module>
+      <module>1.4-file-to-file-with-header-and-filter</module>
+      <module>1.5-file-to-queue-with-choice</module>
   </modules>
 
   <properties>

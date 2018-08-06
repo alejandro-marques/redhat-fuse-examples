@@ -9,7 +9,7 @@
     <version>1.0</version>
   </parent>
 
-  <artifactId>redhat-1.1-journal-transact</artifactId>
+  <artifactId>redhat-1.1-file-to-file</artifactId>
   <name>GE: Journaling Incoming Transactions</name>
 
   <dependencies>

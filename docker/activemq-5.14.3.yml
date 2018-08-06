@@ -1,0 +1,22 @@
+version: '2'
+
+services:
+  activemq:
+    image: activemq:5.14.3
+    container_name: activemq-5.14.3
+    networks: 
+      activemq-5.14.3-network:
+        aliases:
+          - activemq
+    ports:
+      - "8161:8161"
+      - "61616:61616"
+
+networks:
+  activemq-5.14.3-network:
+    driver: bridge
+    ipam:
+      driver: default
+      config:
+      - subnet: 172.21.100.0/24
+        gateway: 172.21.100.51
