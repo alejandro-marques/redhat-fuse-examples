@@ -16,6 +16,7 @@
       <module>1.4-file-to-file-with-header-and-filter</module>
       <module>2.1-file-to-queue-with-choice</module>
       <module>2.2-header-processor</module>
+      <module>2.3-deploy-on-jboss</module>
   </modules>
 
   <properties>

@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+
+  <modelVersion>4.0.0</modelVersion>
+
+  <parent>
+    <artifactId>camel-exercises</artifactId>
+    <groupId>com.redhat.training</groupId>
+    <version>1.0</version>
+  </parent>
+
+  <groupId>com.redhat.training.jb421</groupId>
+  <artifactId>redhat-2.3-deploy-on-jboss</artifactId>
+  <name>GE: Deploying Camel Projects on Fuse (fuse-mgmt)</name>
+  <!--
+  <packaging>jar</packaging>
+  <version>1.0-SNAPSHOT</version>
+  -->
+  <packaging>bundle</packaging>
+  
+  <!--
+  <name>A Camel Spring Route</name>
+  <url>http://www.myorganization.org</url>
+  -->
+  
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+  </properties>
+
+  <dependencies>
+    <dependency>
+      <groupId>org.apache.camel</groupId>
+      <artifactId>camel-core</artifactId>
+      <!--
+      <version>2.17.0.redhat-630187</version>
+      -->
+    </dependency>
+    <dependency>
+      <groupId>org.apache.camel</groupId>
+      <artifactId>camel-spring</artifactId>
+      <!--
+      <version>2.17.0.redhat-630187</version>
+      -->
+    </dependency>
+
+    <!-- logging -->
+    <dependency>
+      <groupId>org.slf4j</groupId>
+      <artifactId>slf4j-api</artifactId>
+      <!--
+      <version>1.7.7.redhat-2</version>
+      -->
+    </dependency>
+    <dependency>
+      <groupId>org.slf4j</groupId>
+      <artifactId>slf4j-log4j12</artifactId>
+      <!--
+      <version>1.7.7.redhat-2</version>
+      -->
+    </dependency>
+    <dependency>
+      <groupId>log4j</groupId>
+      <artifactId>log4j</artifactId>
+      <!--
+      <version>1.2.17</version>
+      -->     
+    </dependency>
+
+    <!-- testing -->
+    <!-- change from camel-test-sprint to camel-test-spring3 -->
+    <dependency>
+      <groupId>org.apache.camel</groupId>
+      <artifactId>camel-test-spring3</artifactId>
+      <!--
+      <version>2.17.0.redhat-630187</version>
+      -->
+      <scope>test</scope>
+    </dependency>
+
+  </dependencies>
+
+  <build>
+    <defaultGoal>install</defaultGoal>
+
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <!--
+        <version>3.5.1</version>
+        -->
+        <configuration>
+          <source>1.8</source>
+          <target>1.8</target>
+        </configuration>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-resources-plugin</artifactId>
+        <!--
+        <version>2.6</version>
+        -->
+        <configuration>
+          <encoding>UTF-8</encoding>
+        </configuration>
+      </plugin>
+
+      <!-- allows the route to be run via 'mvn camel:run' -->
+      <plugin>
+        <groupId>org.apache.camel</groupId>
+        <artifactId>camel-maven-plugin</artifactId>
+        <!--
+        <version>2.17.0.redhat-630187</version>
+        -->
+      </plugin>
+      
+      <!-- ADDED: allows packaging as an OSGi bundle -->
+      <plugin>
+        <groupId>org.apache.felix</groupId>
+        <artifactId>maven-bundle-plugin</artifactId>
+        <extensions>true</extensions>
+        <!-- Do NOT export the processor classes, they are internal to the bundle -->
+        <configuration>
+          <instructions>
+            <Private-Package>com.redhat.training.jb421</Private-Package>
+          </instructions>
+        </configuration>
+      </plugin>
+
+    </plugins>
+  </build>
+
+</project>
