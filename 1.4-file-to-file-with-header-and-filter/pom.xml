@@ -10,7 +10,7 @@
 
 	<modelVersion>4.0.0</modelVersion>
 	<artifactId>redhat-1.4-file-to-file-with-header-and-filter</artifactId>
-	<name>Lab: Introducing Camel</name>
+	<name>Lab: Introducing Camel (intro-camel)</name>
 	<packaging>jar</packaging>
 
 	<dependencies>

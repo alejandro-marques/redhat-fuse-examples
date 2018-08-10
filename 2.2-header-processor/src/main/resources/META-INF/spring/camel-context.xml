@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd        http://camel.apache.org/schema/spring http://camel.apache.org/schema/spring/camel-spring.xsd">
+    <!-- TODO add the HeaderProcessor bean definition here -->
+    <bean class="com.redhat.training.jb421.HeaderProcessor" id="headerProcessor"/>
+    <camelContext id="processorContext" xmlns="http://camel.apache.org/schema/spring">
+        <route id="headerRoute">
+            <!-- TODO add the process element after the from -->
+            <!-- TODO replace the to with a dynamic route using the journalFileName header -->
+            <from id="fromFiles" uri="file:orders/incoming"/>
+            <process id="processHeader" ref="headerProcessor"/>
+            <toD id="toJournal" uri="file:orders?fileExist=Append&amp;fileName=${header.journalFileName}"/>
+        </route>
+    </camelContext>
+</beans>

@@ -1,0 +1,12 @@
+<order>
+	<orderId>6</orderId>
+	<orderDate>2016-12-11T12:05:00-05:00</orderDate>
+	<orderItems>
+		<orderItem>
+			<orderItemId>6</orderItemId>
+			<orderItemQty>1</orderItemQty>
+			<orderItemPublisherName>ABC Company</orderItemPublisherName>
+			<orderItemPrice>10.59</orderItemPrice>
+		</orderItem>
+	</orderItems>
+</order>
